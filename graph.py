@@ -1,8 +1,10 @@
 
 """
 The Class used to construct the Graph for the Problem
-
 """
+
+"""Imports"""
+import random
 
 """ Variables """
 MAX_LENGTH = 100
@@ -13,6 +15,7 @@ class Graph(object):
         self.size = size
         self.nodes = {}
         self.edges = {}
+        self.paths = {}
 
     # Make Nodes and their edges
     # As: (Node) : Node1, Node2, etc
@@ -25,4 +28,23 @@ class Graph(object):
                     temps.append(j)
             self.nodes[i] = temps
 
-#    def makeWeights(self):
+
+    # Make random weights for each edge in graph
+    def makeWeights(self):
+        random.seed()
+        for node in self.nodes:
+            for edge in self.nodes[node]:
+                e = (node, edge)
+                rev_e = (edge, node)
+                if (not(e in self.edges or rev_e in self.edges)):
+                    self.edges[e] = random.randrange(1, MAX_LENGTH)
+
+"""
+    # Generate all Complete Paths
+    def getAllPaths(self):
+        totalCost = 0
+        # Start with node 0
+        temp_edges = {}
+        temp_edges = self.edges
+        while (temp_edges):
+        """    
