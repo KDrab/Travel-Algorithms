@@ -18,12 +18,12 @@ def main():
     print(graph.nodes)
 
     #Edges
-    graph.makeWeights()
-    """for edge in graph.edges:
-        print(edge, graph.edges[edge])"""
+    print(graph.makeWeights())
+    for edge in graph.edges:
+        print(edge, graph.edges[edge])
 
-    #Paths
-    print(graph.getPath(graph.nodes, 0, [1,2,3,4,5]))
+    #Total Cost path
+    print(graph.brute_lowest_cost([0,1,2,3]))
 
     #Algorithm
     algChoice = input("What algorithm would you like to run? Please enter Greedy, or DP: ")
