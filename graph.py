@@ -39,12 +39,22 @@ class Graph(object):
                 if (not(e in self.edges or rev_e in self.edges)):
                     self.edges[e] = random.randrange(1, MAX_LENGTH)
 
-"""
-    # Generate all Complete Paths
-    def getAllPaths(self):
-        totalCost = 0
-        # Start with node 0
-        temp_edges = {}
-        temp_edges = self.edges
-        while (temp_edges):
-        """    
+
+    # Find a single path through the graph
+    def getPath(self, g, start, to_visit, path = []):
+        path = path + [start]
+        if not to_visit:
+            return [path]
+        if not start in g:
+            return []
+        paths = []
+        for node in g[start]:
+            if node not in path:
+                print(node)
+                print(to_visit)
+                if to_visit:
+                    to_visit.remove(node)
+                newpaths = self.getPath(g, node, to_visit, path)
+                for newpath in newpaths:
+                    paths.append(newpath)
+        return paths

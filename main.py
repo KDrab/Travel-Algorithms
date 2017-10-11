@@ -19,12 +19,17 @@ def main():
 
     #Edges
     graph.makeWeights()
-    print(graph.edges)
+    """for edge in graph.edges:
+        print(edge, graph.edges[edge])"""
+
+    #Paths
+    print(graph.getPath(graph.nodes, 0, [1,2,3,4,5]))
 
     #Algorithm
     algChoice = input("What algorithm would you like to run? Please enter Greedy, or DP: ")
     if (not (algChoice == "Greedy" or algChoice == "DP")):
         algChoice = input("Please enter Greedy or DP:")
+
 
 
 main()
