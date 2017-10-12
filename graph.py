@@ -16,20 +16,22 @@ class Graph(object):
         self.size = size
         self.nodes = {}
         self.edges = {}
+        self.node_array = []
 
     # Make Nodes and their edges
     # As: (Node) : Node1, Node2, etc
-    def makeGraph(self):
+    def make_graph(self):
         for i in range(0, int(self.size)):
             temps = []
             for j in range(0, int(self.size)):
                 if not (i == j):
                     temps.append(j)
             self.nodes[i] = temps
+            self.node_array.append(i)
 
 
     # Make random weights for each edge in graph
-    def makeWeights(self):
+    def make_weights(self):
         random.seed()
         for node in self.nodes:
             for edge in self.nodes[node]:
@@ -44,7 +46,7 @@ class Graph(object):
     https://codereview.stackexchange.com/questions/81865/travelling-salesman-using-brute-force-and-heuristics
     """
 
-    # Algorithm finds the lowest cost path through the graph
+    # Algorithm finds the lowest cost path through the graph, uses O(n!)
     # NEEDS test
     def brute_lowest_cost(self, points, start=None):
         if start is None:
