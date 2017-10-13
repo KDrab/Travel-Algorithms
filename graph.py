@@ -42,7 +42,8 @@ class Graph(object):
                 else:
                     self.edges[e] = self.edges[rev_e]
 
-    """ Following three methods use code taken from here:
+
+    """ Following two methods use code taken from here:
     https://codereview.stackexchange.com/questions/81865/travelling-salesman-using-brute-force-and-heuristics
     """
 

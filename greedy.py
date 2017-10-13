@@ -7,7 +7,7 @@
 
 def greed_triv(graph, start, to_visit, out):
     if not to_visit:
-        return []
+        return out
     next_set = []
     next_set = to_visit
     next_set.remove(start)
@@ -15,6 +15,6 @@ def greed_triv(graph, start, to_visit, out):
     lowest_cost = 101
     low_node = start
     for node in next_set:
-        if graph.edges((start, node)) < lowest_cost:
-            lowest_cost, low_node = graph.edges(start, node), node
+        if graph.edges[(start, node)] < lowest_cost:
+            lowest_cost, low_node = graph.edges[(start, node)], node
     return greed_triv(graph, low_node, to_visit, out)
