@@ -22,7 +22,8 @@ def main():
 
     #Total Cost path
     print(graph.node_array)
-    print(graph.brute_lowest_cost(graph.node_array))
+    low_path = graph.brute_lowest_cost(graph.node_array)
+    print(low_path, graph.total_distance(low_path))
 
     #Algorithm Choice
     algChoice = input("What algorithm would you like to run? Please enter Greedy, or DP: ")
@@ -38,7 +39,8 @@ def main():
             for node in graph.node_array:
                 to_visit.append(node)
             first = random.randrange(0, num_iters)
-            print(greedy.greed_triv(graph, first, to_visit, []))
+            path = greedy.greed_triv(graph, first, to_visit, [])
+            print(path, graph.total_distance(path))
 
 
 

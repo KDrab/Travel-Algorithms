@@ -8,7 +8,6 @@
 def greed_triv(graph, start, to_visit, out):
     if not to_visit:
         return out
-    next_set = []
     next_set = to_visit
     next_set.remove(start)
     out.append(start)
