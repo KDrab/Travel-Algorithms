@@ -17,3 +17,7 @@ def greed_triv(graph, start, to_visit, out):
         if graph.edges[(start, node)] < lowest_cost:
             lowest_cost, low_node = graph.edges[(start, node)], node
     return greed_triv(graph, low_node, to_visit, out)
+
+
+def greed_repeat(graph, start, to_visit, out, attempts):
+    
