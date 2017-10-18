@@ -19,5 +19,10 @@ def greed_triv(graph, start, to_visit, out):
     return greed_triv(graph, low_node, to_visit, out)
 
 
+# Greedy optimization: Algorithm uses repeated greedy runs to output the most frequent
+# repeated nodes without and increase by a factor of n
+
 def greed_repeat(graph, start, to_visit, out, attempts):
-    
+    runs = []
+    for i in range(1, attempts):
+        runs.appends(greed_triv(graph, start, to_visit, out))
