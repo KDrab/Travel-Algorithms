@@ -21,9 +21,17 @@ def main():
     graph.make_weights()
 
     #Total Cost path
-    print(graph.node_array)
-    low_path = graph.brute_lowest_cost(graph.node_array)
-    print(low_path, graph.total_distance(low_path))
+    brutes = []
+    for node in graph.nodes:
+        low_path = graph.brute_lowest_cost(graph.node_array, node)
+        brutes.append(low_path)
+
+    #Printing all paths, and best
+    for path in brutes:
+        print(path, graph.total_distance(path))
+
+    #for e in graph.edges:
+    #    print(e, graph.edges[e])
 
     #Algorithm Choice
     algChoice = input("What algorithm would you like to run? Please enter Greedy, or DP: ")
@@ -33,13 +41,13 @@ def main():
     #Greedy Choice and parameters
     random.seed()
     if (algChoice == "Greedy"):
-        num_iters = int(input("From how many nodes would you like to run the trivial algorithm?: "))
         to_visit = []
-        for i in range(0, num_iters):
+        for i in range(0, len(graph.nodes)):
             for node in graph.node_array:
                 to_visit.append(node)
-            first = random.randrange(0, num_iters)
+            first = i
             path = greedy.greed_triv(graph, first, to_visit, [])
+            path[::-1]
             print(path, graph.total_distance(path))
 
 

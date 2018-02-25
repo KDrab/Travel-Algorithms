@@ -49,7 +49,7 @@ class Graph(object):
 
     # Algorithm finds the lowest cost path through the graph, uses O(n!)
     # NEEDS test
-    def brute_lowest_cost(self, points, start=None):
+    def brute_lowest_cost(self, points, start):
         if start is None:
             start = points[0]
         return min([perm for perm in permutations(points) if perm[0] == start], key = self.total_distance)
