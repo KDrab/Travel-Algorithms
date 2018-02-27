@@ -6,6 +6,7 @@ import sys
 import random
 from graph import Graph
 import greedy
+import dynamic
 
 """Variables"""
 s_node = 0
@@ -38,6 +39,7 @@ def main():
     for path in brutes:
         print(path, graph.total_distance(path))
 
+
     #Algorithm Choice
     algChoice = input("What algorithm would you like to run? Please enter Greedy, or DP: ")
     while (not (algChoice == "Greedy" or algChoice == "DP")):
@@ -62,7 +64,7 @@ def main():
                 print(path, graph.total_distance(path))
 
     #DP Choice:
-    #if (algChoice == "DP"):
+    if (algChoice == "DP"):
 
 
 

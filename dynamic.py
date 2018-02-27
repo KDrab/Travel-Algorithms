@@ -2,6 +2,9 @@
 #          Problem
 
 
+"""Imports"""
+from graph import Graph
+
 #Memoization: evalutaing the cost of a sub_path will be stored and accessed
 #instead of being reevaluated
 
@@ -32,8 +35,16 @@ while cities is NOT empty:
     add cost of subpath to path
     add the subpath created to a dictionary of subpaths for speedup
 
-Speed up: Eliminate function calls for subpaths that have already been evaluated
+Speed up:
+    Eliminate function calls for subpaths that have already been evaluated
+    Function calls to be reduced always occur at least halfway through the Graph
+    We shall say: If the # of nodes is odd, reduction will occur for subpaths
+        of length n - 1 /2
+        If the # of nodes is even, reduction will occur for subpaths
+        of length n/2 - 1
 
+    Thus, we want to store subpaths that are approximately occupying the 2nd half
+    of our decision tree and access those without evaluating whole new paths
 """
+
 def dynamic_p(graph, start, to_visit, out):
-    

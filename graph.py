@@ -56,7 +56,6 @@ class Graph(object):
 
 
     # Finds the total cost of a single path of points through the graph
-    # MAY need to be fixed
     def total_distance(self, points):
         return sum([self.distance(point, points[index + 1]) for index, point in enumerate(points[:-1])])
 
