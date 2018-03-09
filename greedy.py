@@ -6,6 +6,7 @@
 # Trivial Heuristic 1: Start at a random node and choose the smallest edge at each node
 # Runs in O(n^2)
 def greed_triv(graph, start, to_visit, out):
+    # If you have run out of nodes to visit, return
     if not to_visit:
         return out
     to_visit.remove(start)

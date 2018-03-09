@@ -45,6 +45,13 @@ Speed up:
 
     Thus, we want to store subpaths that are approximately occupying the 2nd half
     of our decision tree and access those without evaluating whole new paths
+
+
+    TODO: Create the permutation generating main Function
+
+    TODO: Create the DP lookup table that eliminates function calls
+
+    TODO: Possibly implement the Held-Karp algorithm as solution.
 """
 
-def dynamic_p(graph, start, to_visit, out):
+def dynamic_p(G, start, to_visit, out):
